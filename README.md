@@ -50,6 +50,7 @@ bash
 Copy
 Edit
 streamlit run app.py
+```
 This will open a new tab in your browser.
 
 Click the Start Detection button to begin real-time monitoring.
