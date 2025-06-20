@@ -28,6 +28,7 @@ The system analyzes live webcam feed to identify fatigue signs such as prolonged
 
 ## 📂 Project Structure
 
+```bash
 driver_drowsiness_System/
 ├── app.py # Main Streamlit application
 ├── eye_state_model.h5 # Trained CNN model for eye state classification
@@ -37,11 +38,7 @@ driver_drowsiness_System/
 │ └── drowsiness_log.csv # Timestamped log of all detection events
 ├── README.md # Project documentation
 
-yaml
-Copy
-Edit
-
----
+```
 
 ## ⚙️ Installation
 
