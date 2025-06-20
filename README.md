@@ -10,13 +10,15 @@ This branch contains the **training dataset** used for the Driver Drowsiness Det
 ---
 
 ## 📂 Folder Structure
----
+
+```bash
 train/
 ├── Closed/       # Images with closed eyes
 ├── Open/         # Images with open eyes
 ├── no_yawn/      # Images without yawning
 └── yawn/         # Images with visible yawns
----
+
+```
 
 ## 📦 Purpose of This Branch
 
