@@ -56,81 +56,79 @@ Edit
 # 1. Clone the repository
 git clone https://github.com/your-username/driver_drowsiness_System.git
 cd driver_drowsiness_System
-```bash
+
 # 2. (Optional) Create a virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```bash
+
 # 3. Install required packages
 pip install -r requirements.txt
-```bash
+
 # 4. Run the Streamlit app
 streamlit run app.py
 ```
-🧠 How It Works
-Face Detection & ROI Extraction
+## 🧠 How It Works
+
+### 🔹 Face Detection & ROI Extraction
 Mediapipe detects facial landmarks and crops regions for both eyes and the mouth.
 
-CNN-Based Classification
+### 🔹 CNN-Based Classification
+- Eye model predicts **Open** or **Closed** from cropped eye images  
+- Yawn model predicts **Yawn** or **No Yawn** from mouth region
 
-Eye model predicts Open or Closed from cropped eye images
+### 🔹 Alert Logic
+If eyes remain closed for **≥ 15 frames** or yawns are detected in **≥ 2 frames**, the system:
+- Saves the current frame as a screenshot  
+- Logs the event with a timestamp and reason  
+- Displays an alert message in the UI
 
-Yawn model predicts Yawn or No Yawn from mouth region
+### 🔹 User Interface
+- Start/Stop webcam detection  
+- Live counter updates for eyes/yawn  
+- CSV log download from sidebar
 
-Alert Logic
+---
 
-If eyes remain closed for ≥ 15 frames or yawns are detected in ≥ 2 frames, the system:
+## 📸 Screenshots
 
-Saves the current frame as a screenshot
 
-Logs the event with a timestamp and reason
+---
 
-Displays an alert message in the UI
+## 📚 Tech Stack
 
-User Interface
+- **Frontend**: Streamlit  
+- **Computer Vision**: OpenCV, Mediapipe  
+- **Deep Learning**: TensorFlow / Keras (CNN)  
+- **Utilities**: Pandas, NumPy, OS  
 
-Start/Stop webcam detection
+---
 
-Live counter updates for eyes/yawn
+## 🚀 Future Enhancements
 
-CSV log download from sidebar
+- 🔊 Add audio alert for drowsiness detection  
+- 📱 Convert to mobile app or standalone desktop executable  
+- 🎥 Add head pose tracking for enhanced detection  
+- 🧠 Merge eye and yawn into a multi-output CNN  
+- ☁️ Deploy on Jetson Nano or Raspberry Pi for in-vehicle use  
 
-📸 Screenshots
-Live Monitoring	Drowsiness Alert	Logged Screenshots
+---
 
-Replace with your actual images in the static/ folder if needed.
+## 🙌 Acknowledgments
 
-📚 Tech Stack
-Frontend: Streamlit
+- [Mediapipe by Google](https://github.com/google/mediapipe) for real-time landmark tracking  
+- OpenCV & TensorFlow open-source communities  
+- Public datasets used for training eye and yawn classifiers  
 
-Computer Vision: OpenCV, Mediapipe
+---
 
-Deep Learning: TensorFlow / Keras (CNN)
+## 📬 Contact
 
-Utilities: Pandas, NumPy, OS
+**Metla Umesh Chandra**  
+📧 Email: [2201AI24@iitp.ac.in](mailto:2201AI24@iitp.ac.in)  
+🐙 GitHub: [@2201AI24](https://github.com/2201AI24)  
+🔗 LinkedIn: [metla-umesh-chandra](https://www.linkedin.com/in/metla-umesh-chandra/)  
 
-🚀 Future Enhancements
-🔊 Add audio alert for drowsiness detection
+---
 
-📱 Convert to mobile app or standalone desktop executable
+> ⚠️ This is an academic project built for learning and demonstration purposes. Please use responsibly and ethically.
 
-🎥 Add head pose tracking for enhanced detection
-
-🧠 Merge eye and yawn into a multi-output CNN
-
-☁️ Deploy on Jetson Nano or Raspberry Pi for in-vehicle use
-
-🙌 Acknowledgments
-Mediapipe by Google for real-time landmark tracking
-
-OpenCV & TensorFlow open-source communities
-
-Public datasets used for training eye and yawn classifiers
-
-📬 Contact
-Metla Umesh Chandra
-Email: 2201AI24@iitp.ac.in
-GitHub: @2201AI24
-LinkedIn: metla-umesh-chandra
-
-⚠️ This is an academic project built for learning and demonstration purposes. Please use responsibly and ethically.
