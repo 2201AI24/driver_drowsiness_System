@@ -1,135 +1,95 @@
-💤 Driver Drowsiness Detection System
-A real-time computer vision system that detects driver fatigue by monitoring eye closure and yawning using webcam input. The system leverages deep learning models to trigger alerts and log drowsiness events, helping reduce road accidents.
+# 💤 Driver Drowsiness Detection System
 
-🔍 Overview
-This project implements a real-time driver drowsiness detection system using:
+A real-time, deep learning–powered application that detects driver fatigue by monitoring eye closure and yawning through webcam input. This system is designed to enhance road safety by triggering alerts and saving logs when signs of drowsiness are detected.
 
-✅ Convolutional Neural Networks (CNNs) for eye and yawn state classification
+## 🚀 Features
 
-✅ Mediapipe FaceMesh for accurate facial landmark detection
+- 🧠 **CNN-Based Detection**  
+  Two custom-trained Convolutional Neural Network (CNN) models classify eye states (open/closed) and mouth states (yawn/no yawn).
 
-✅ Streamlit interface for interactive user control and visualization
+- 🎯 **Facial Landmark Detection with Mediapipe**  
+  Uses Mediapipe's FaceMesh to accurately extract eye and mouth regions from webcam frames.
 
-The system analyzes live webcam feed to identify fatigue signs such as prolonged eye closure and frequent yawning. Alerts are triggered and screenshots/logs are saved when drowsiness is detected.
+- ⚙️ **Smart Frame-Based Logic**  
+  Triggers drowsiness alerts if:
+  - Eyes are closed for more than 15 consecutive frames
+  - Yawning is detected in 2 or more consecutive frames
 
-📌 Features
-🧠 Real-time eye and yawn detection using custom CNN models
+- 💾 **Event Logging & Screenshots**  
+  Automatically saves detection logs (with timestamps) and screenshots of drowsiness events.
 
-🎯 FaceMesh landmark tracking to extract eyes and mouth regions
+- 🌐 **Interactive Streamlit Web App**  
+  A clean and user-friendly UI with real-time video, status indicators, and downloadable event logs.
 
-🕒 Frame-based alert logic with counters to reduce false positives
+## 🛠️ Tech Stack
 
-💾 Automatic screenshot saving and log entry when drowsiness is detected
+- **Languages**: Python  
+- **Libraries**: TensorFlow, OpenCV, Mediapipe, Streamlit, NumPy, Pandas  
+- **Models**: Custom CNNs (Keras `.h5` format)
 
-🌐 Streamlit web app with Start/Stop controls and log download
+## 📦 Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/driver_drowsiness_System.git
+cd driver_drowsiness_System
+Install Dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+If requirements.txt is not available, install manually:
+
+bash
+Copy
+Edit
+pip install streamlit opencv-python mediapipe tensorflow pandas
+▶️ Running the App
+bash
+Copy
+Edit
+streamlit run app.py
+This will open a new tab in your browser.
+
+Click the Start Detection button to begin real-time monitoring.
+
+Click Stop Detection to stop the webcam feed.
+
+Download logs from the sidebar after detection.
 
 📂 Project Structure
+bash
+Copy
+Edit
 driver_drowsiness_System/
-├── app.py # Main Streamlit application
-├── eye_state_model.h5 # CNN model for eye state classification
-├── yawn_detection_model.h5 # CNN model for yawn detection
+├── app.py                       # Main Streamlit app
+├── eye_state_model.h5          # CNN model for eye state classification
+├── yawn_detection_model.h5     # CNN model for yawn detection
 ├── drowsiness_logs/
-│ ├── screenshots/ # Saved images when drowsiness is detected
-│ └── drowsiness_log.csv # Timestamped log of all detection events
-├── README.md # Project documentation
-
-⚙️ Installation
-✅ Prerequisites
-Python 3.7 or higher
-
-Webcam-enabled environment
-
-🔧 Setup Instructions
-Clone the repository
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/driver_drowsiness_System.git  
-cd driver_drowsiness_System  
-(Optional) Create a virtual environment
-
-bash
-Copy
-Edit
-python -m venv venv  
-source venv/bin/activate   # On Windows: venv\Scripts\activate  
-Install required packages
-
-nginx
-Copy
-Edit
-pip install -r requirements.txt  
-Run the Streamlit app
-
-arduino
-Copy
-Edit
-streamlit run app.py  
-🧠 How It Works
-Face Detection & ROI Extraction
-Mediapipe detects facial landmarks and crops regions for both eyes and the mouth.
-
-CNN-Based Classification
-
-Eye model predicts Open or Closed from cropped eye images
-
-Yawn model predicts Yawn or No Yawn from mouth region
-
-Alert Logic
-
-If eyes remain closed for ≥ 15 frames or yawns are detected in ≥ 2 frames, the system:
-
-Saves the current frame as a screenshot
-
-Logs the event with a timestamp and reason
-
-Displays an alert message in the UI
-
-User Interface
-
-Start/Stop webcam detection
-
-Live counter updates for eyes/yawn
-
-CSV log download from sidebar
-
+│   ├── screenshots/            # Saved frames of detected events
+│   └── drowsiness_log.csv      # Log file with timestamps and filenames
+├── README.md                   # Project description
 📸 Screenshots
-Live Monitoring	Drowsiness Alert	Logged Screenshots
+Real-Time Detection	Drowsiness Alert
 
-Replace with your actual images in the static/ folder if needed.
+(Replace the image paths with your actual screenshots in the static/ folder if you include them)
 
-📚 Tech Stack
-Frontend: Streamlit
+📈 Future Improvements
+🔊 Add sound/vibration alerts
 
-Computer Vision: OpenCV, Mediapipe
+📱 Deploy as mobile app or executable GUI
 
-Deep Learning: TensorFlow / Keras (CNN)
+🎥 Head pose detection for distraction monitoring
 
-Utilities: Pandas, NumPy, OS
+🤖 Combine eye and yawn detection into a multi-task CNN
 
-🚀 Future Enhancements
-🔊 Add audio alert for drowsiness detection
+☁️ Cloud deployment or Edge device integration (Jetson Nano / Raspberry Pi)
 
-📱 Convert to mobile app or standalone desktop executable
+📄 License
+This project is open-source and available under the MIT License.
 
-🎥 Add head pose tracking for enhanced detection
-
-🧠 Merge eye and yawn into a multi-output CNN
-
-☁️ Deploy on Jetson Nano or Raspberry Pi for in-vehicle use
-
-🙌 Acknowledgments
-Mediapipe by Google for real-time landmark tracking
-
-OpenCV & TensorFlow open-source communities
-
-Public datasets used for training eye and yawn classifiers
-
-📬 Contact
+🙋‍♂️ Author
 Metla Umesh Chandra
-Email: 2201AI24@iitp.ac.in
-GitHub: @2201AI24
-LinkedIn: metla-umesh-chandra
-
-⚠️ This is an academic project built for learning and demonstration purposes. Please use responsibly and ethically.
+📧 2201AI24@iitp.ac.in
+🌐 LinkedIn | GitHub
